@@ -2,70 +2,120 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button } from '../components/Button/Button';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
+const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'A customizable button component built on top of HeroUI Button with consistent styling and behavior.',
+      },
+    },
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     variant: {
-      control: { type: 'select' },
-      options: ['flat', 'solid', 'bordered', 'light', 'faded', 'shadow', 'ghost'],
-      description: 'The button variant style',
+      control: 'select',
+      options: ['solid', 'bordered', 'light', 'flat', 'faded', 'shadow', 'ghost'],
+      description: 'The visual style variant of the button',
+      table: {
+        defaultValue: { summary: 'solid' },
+      },
+    },
+    color: {
+      control: 'select',
+      options: ['default', 'primary', 'secondary', 'success', 'warning', 'danger'],
+      description: 'The color theme of the button',
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
     },
     size: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['sm', 'md', 'lg'],
       description: 'The size of the button',
-    },
-    loading: {
-      control: { type: 'boolean' },
-      description: 'Whether the button is in loading state',
-    },
-    disabled: {
-      control: { type: 'boolean' },
-      description: 'Whether the button is disabled',
+      table: {
+        defaultValue: { summary: 'md' },
+      },
     },
     radius: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['none', 'sm', 'md', 'lg', 'full'],
       description: 'The border radius of the button',
     },
+    loading: {
+      control: 'boolean',
+      description: 'Whether the button is in loading state',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Whether the button is disabled',
+    },
+    fullWidth: {
+      control: 'boolean',
+      description: 'Whether the button should take full width',
+    },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { 
+  args: {
     onClick: fn(),
     children: 'Button',
   },
-} satisfies Meta<typeof Button>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+// Basic variants
 export const Default: Story = {
   args: {
     children: 'Default Button',
   },
 };
 
+export const Primary: Story = {
+  args: {
+    color: 'primary',
+    children: 'Primary Button',
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    color: 'secondary',
+    children: 'Secondary Button',
+  },
+};
+
+export const Success: Story = {
+  args: {
+    color: 'success',
+    children: 'Success Button',
+  },
+};
+
+export const Warning: Story = {
+  args: {
+    color: 'warning',
+    children: 'Warning Button',
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    color: 'danger',
+    children: 'Danger Button',
+  },
+};
+
+// Variants
 export const Solid: Story = {
   args: {
     variant: 'solid',
     children: 'Solid Button',
-  },
-};
-
-export const Flat: Story = {
-  args: {
-    variant: 'flat',
-    children: 'Flat Button',
   },
 };
 
@@ -83,10 +133,17 @@ export const Light: Story = {
   },
 };
 
-export const Ghost: Story = {
+export const Flat: Story = {
   args: {
-    variant: 'ghost',
-    children: 'Ghost Button',
+    variant: 'flat',
+    children: 'Flat Button',
+  },
+};
+
+export const Faded: Story = {
+  args: {
+    variant: 'faded',
+    children: 'Faded Button',
   },
 };
 
@@ -97,7 +154,14 @@ export const Shadow: Story = {
   },
 };
 
+export const Ghost: Story = {
+  args: {
+    variant: 'ghost',
+    children: 'Ghost Button',
+  },
+};
 
+// Sizes
 export const Small: Story = {
   args: {
     size: 'sm',
@@ -119,6 +183,7 @@ export const Large: Story = {
   },
 };
 
+// States
 export const Loading: Story = {
   args: {
     loading: true,
@@ -133,23 +198,58 @@ export const Disabled: Story = {
   },
 };
 
-export const WithIcon: Story = {
+// With Icons
+export const WithStartIcon: Story = {
   args: {
-    icon: '🚀',
-    children: 'Button with Icon',
+    startIcon: '🚀',
+    children: 'Button with Start Icon',
+  },
+};
+
+export const WithEndIcon: Story = {
+  args: {
+    endIcon: '→',
+    children: 'Button with End Icon',
+  },
+};
+
+export const WithBothIcons: Story = {
+  args: {
+    startIcon: '🚀',
+    endIcon: '→',
+    children: 'Button with Both Icons',
+  },
+};
+
+// Radius variants
+export const NoRadius: Story = {
+  args: {
+    radius: 'none',
+    children: 'No Radius',
+  },
+};
+
+export const SmallRadius: Story = {
+  args: {
+    radius: 'sm',
+    children: 'Small Radius',
   },
 };
 
 export const FullRadius: Story = {
   args: {
     radius: 'full',
-    children: 'Full Radius Button',
+    children: 'Full Radius',
   },
 };
 
-export const NoRadius: Story = {
+// Full width
+export const FullWidth: Story = {
   args: {
-    radius: 'none',
-    children: 'No Radius Button',
+    fullWidth: true,
+    children: 'Full Width Button',
+  },
+  parameters: {
+    layout: 'padded',
   },
 };

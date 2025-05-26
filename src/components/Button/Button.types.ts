@@ -1,7 +1,22 @@
-import type { ButtonProps as HeroButtonProps } from '@heroui/react';
+import type { ReactNode, ButtonHTMLAttributes } from 'react';
 
-export interface CustomButtonProps extends Omit<HeroButtonProps, 'color' | 'variant'> {
-  variant?: 'flat' | 'solid' | 'bordered' | 'light' | 'faded' | 'shadow' | 'ghost';
-  icon?: React.ReactNode;
+export interface CustomButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'> {
+  /** The content of the button */
+  children: ReactNode;
+  /** Icon to display at the start of the button */
+  startIcon?: ReactNode;
+  /** Icon to display at the end of the button */
+  endIcon?: ReactNode;
+  /** Whether the button is in loading state */
   loading?: boolean;
+  /** The visual style variant of the button */
+  variant?: 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost';
+  /** The color theme of the button */
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  /** The size of the button */
+  size?: 'sm' | 'md' | 'lg';
+  /** The border radius of the button */
+  radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
+  /** Whether the button should take full width */
+  fullWidth?: boolean;
 }
