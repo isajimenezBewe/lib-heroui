@@ -24,11 +24,6 @@ const meta = {
       options: ['sm', 'md', 'lg'],
       description: 'The size of the button',
     },
-    color: {
-      control: { type: 'select' },
-      options: ['default', 'primary', 'secondary', 'success', 'warning', 'danger'],
-      description: 'The color theme of the button',
-    },
     loading: {
       control: { type: 'boolean' },
       description: 'Whether the button is in loading state',
