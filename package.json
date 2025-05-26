@@ -1,0 +1,43 @@
+{
+  "name": "lib-heroui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/lib-heroui.umd.js",
+  "module": "./dist/lib-heroui.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/lib-heroui.es.js",
+    "require": "./dist/lib-heroui.umd.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "rollup-plugin-dts": "^6.2.1",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.30.1",
+    "vite": "^6.3.5"
+  }
+}
