@@ -1,7 +1,7 @@
 {
   "name": "lib-heroui",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "description": "Librería de componentes React optimizada construida sobre HeroUI",
   "keywords": ["react", "heroui", "components", "ui", "tailwind"],
