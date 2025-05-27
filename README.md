@@ -1,54 +1,141 @@
-# React + TypeScript + Vite
+# Lib HeroUI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una librería de componentes React construida sobre HeroUI con optimizaciones de peso.
 
-Currently, two official plugins are available:
+## 📦 Instalación
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install lib-heroui
+```
 
-## Expanding the ESLint configuration
+### Dependencias Requeridas (Peer Dependencies)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Esta librería requiere que instales las siguientes dependencias en tu proyecto:
+
+```bash
+npm install react react-dom @heroui/react @heroui/system @heroui/theme framer-motion tailwindcss
+```
+
+## 🚀 Uso Básico
+
+### 1. Configurar HeroUI Provider
+
+```tsx
+import React from 'react';
+import { HeroUIProvider } from '@heroui/react';
+import { ButtonPrueba } from 'lib-heroui';
+
+function App() {
+  return (
+    <HeroUIProvider>
+      <div className="light text-foreground bg-background">
+        <ButtonPrueba color="primary">
+          Mi Botón
+        </ButtonPrueba>
+      </div>
+    </HeroUIProvider>
+  );
+}
+```
+
+### 2. Configurar Tailwind CSS
+
+Agrega el plugin de HeroUI a tu `tailwind.config.js`:
 
 ```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
+const { heroui } = require("@heroui/react");
+
+module.exports = {
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/react/dist/**/*.{js,ts,jsx,tsx}",
   ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
+  theme: {
+    extend: {},
   },
-})
+  darkMode: "class",
+  plugins: [heroui()],
+};
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. Importar estilos CSS (opcional)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Si quieres usar los estilos base de Tailwind:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```css
+/* En tu archivo CSS principal */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
+
+## 📊 Optimizaciones de Peso
+
+Esta librería está optimizada para minimizar el bundle size:
+
+- **Peer Dependencies**: HeroUI, React y Framer Motion son peer dependencies
+- **Tree Shaking**: Solo importa los componentes que uses
+- **CSS Separado**: Los estilos CSS no se incluyen automáticamente
+- **Externalizadas**: Todas las dependencias grandes están externalizadas
+
+### Tamaños de Bundle
+
+- **ES Module**: ~2-5KB (sin dependencias)
+- **UMD**: ~3-7KB (sin dependencias)
+- **CSS**: Los estilos vienen de HeroUI directamente
+
+## 🎨 Componentes Disponibles
+
+### ButtonPrueba
+
+```tsx
+import { ButtonPrueba } from 'lib-heroui';
+
+<ButtonPrueba 
+  variant="solid" 
+  color="primary" 
+  size="md"
+  loading={false}
+  disabled={false}
+  fullWidth={false}
+  startIcon={<Icon />}
+  endIcon={<Icon />}
+  onClick={() => console.log('clicked')}
+>
+  Texto del botón
+</ButtonPrueba>
+```
+
+#### Props
+
+| Prop | Tipo | Default | Descripción |
+|------|------|---------|-------------|
+| `variant` | `'solid' \| 'bordered' \| 'light' \| 'flat' \| 'faded' \| 'shadow' \| 'ghost'` | `'solid'` | Estilo visual del botón |
+| `color` | `'default' \| 'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger'` | `'primary'` | Color del tema |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Tamaño del botón |
+| `loading` | `boolean` | `false` | Estado de carga |
+| `disabled` | `boolean` | `false` | Estado deshabilitado |
+| `fullWidth` | `boolean` | `false` | Ancho completo |
+| `startIcon` | `ReactNode` | - | Icono al inicio |
+| `endIcon` | `ReactNode` | - | Icono al final |
+
+## 🛠️ Desarrollo
+
+```bash
+# Instalar dependencias
+npm install
+
+# Desarrollo con Storybook
+npm run storybook
+
+# Build
+npm run build
+
+# Analizar bundle
+npm run analyze
+```
+
+## 📄 Licencia
+
+MIT
