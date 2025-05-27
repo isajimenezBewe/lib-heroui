@@ -4,7 +4,7 @@ import {HeroUIProvider} from '@heroui/react'
 
 export const ThemeProvider = ({children}: { children: React.ReactNode }) => {
   return (
-    <HeroUIProvider>
+    <HeroUIProvider className="dark">
       {children}
     </HeroUIProvider>
   )
