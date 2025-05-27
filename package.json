@@ -1,6 +1,6 @@
 {
   "name": "lib-heroui",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "description": "Librería de componentes React optimizada construida sobre HeroUI",
