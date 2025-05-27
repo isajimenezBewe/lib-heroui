@@ -1,5 +1,5 @@
 import React from "react";
-import { Button as HeroUIButton} from "@heroui/react";
+import { Button as HeroUIButton } from "@heroui/react";
 import type { CustomButtonProps } from "./Button.types";
 
 /**
@@ -19,7 +19,7 @@ export const ButtonPrueba: React.FC<CustomButtonProps> = ({
   fullWidth = false,
   className = "",
   ...props
-}) => {
+}: CustomButtonProps) => {
   return (
     <HeroUIButton
       variant={variant}
