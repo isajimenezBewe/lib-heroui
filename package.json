@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "Librería de componentes React optimizada construida sobre HeroUI",
+  "keywords": ["react", "heroui", "components", "ui", "tailwind"],
   "main": "./dist/lib-heroui.umd.js",
   "module": "./dist/lib-heroui.es.js",
   "types": "./dist/index.d.ts",
@@ -12,20 +14,27 @@
     "require": "./dist/lib-heroui.umd.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -p tsconfig.lib.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "analyze": "npm run build && npx source-map-explorer 'dist/**/*.js'",
+    "size": "npm run build && bundlesize"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
-    "vite-plugin-dts": "^4.5.4"
+    "@heroui/react": "^2.7.8",
+    "@heroui/system": "^2.4.15",
+    "@heroui/theme": "^2.4.15",
+    "framer-motion": "^12.14.0",
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
@@ -41,29 +50,33 @@
     "@types/react-dom": "^19.1.5",
     "@vitejs/plugin-react": "^4.4.1",
     "autoprefixer": "^10.4.21",
+    "bundlesize": "^0.18.2",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-storybook": "^0.12.0",
     "globals": "^16.0.0",
     "postcss": "^8.5.3",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
     "rollup-plugin-dts": "^6.2.1",
+    "rollup-plugin-visualizer": "^6.0.0",
     "sass": "^1.89.0",
+    "source-map-explorer": "^2.5.3",
     "storybook": "^8.6.14",
-    "tailwindcss": "^3.4.17",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4"
   },
-  "dependencies": {
-    "@heroui/button": "^2.2.19",
-    "@heroui/react": "^2.7.8",
-    "@heroui/system": "^2.4.15",
-    "@heroui/theme": "^2.4.15",
-    "framer-motion": "^12.14.0"
-  },
+  "bundlesize": [
+    {
+      "path": "./dist/lib-heroui.es.js",
+      "maxSize": "10 kB"
+    },
+    {
+      "path": "./dist/lib-heroui.umd.js",
+      "maxSize": "15 kB"
+    }
+  ],
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
