@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Button } from '../components/Button/Button';
+import { ButtonPrueba } from '../components/Button/Button';
+import React from "react";
+import {HeroUIProvider } from '@heroui/react';
 
-const meta: Meta<typeof Button> = {
+const meta: Meta<typeof ButtonPrueba> = {
   title: 'Components/Button',
-  component: Button,
+  component: ButtonPrueba,
   parameters: {
     layout: 'centered',
     docs: {
@@ -67,13 +69,24 @@ const meta: Meta<typeof Button> = {
 };
 
 export default meta;
+
+
+const ThemeDecorator = (Story: React.FC) => (
+  <HeroUIProvider>
+    <Story />
+  </HeroUIProvider>
+);
+
+
+
 type Story = StoryObj<typeof meta>;
 
 // Basic variants
 export const Default: Story = {
   args: {
-    children: 'Default Button',
+    children: 'Default Button xx',
   },
+  decorators: [ThemeDecorator],
 };
 
 export const Primary: Story = {
@@ -81,6 +94,7 @@ export const Primary: Story = {
     color: 'primary',
     children: 'Primary Button',
   },
+  decorators: [ThemeDecorator],
 };
 
 export const Secondary: Story = {

@@ -1,10 +1,11 @@
 import type { Preview } from '@storybook/react';
 import React from 'react';
 import { HeroUIProvider } from '@heroui/react';
-import '../src/styles/heroui.css';
+import '../src/styles/globals.css';
 
 const preview: Preview = {
   parameters: {
+    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -15,7 +16,7 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <HeroUIProvider>
-        <div className="p-4">
+        <div className="light text-foreground bg-background p-4">
           <Story />
         </div>
       </HeroUIProvider>

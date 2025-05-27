@@ -1,1 +1,4 @@
-export { Button } from './components/Button/Button'
+import './styles/globals.css'
+
+export { ButtonPrueba } from './components/Button/Button'
+

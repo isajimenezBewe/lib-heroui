@@ -1,6 +1,7 @@
-import type { ReactNode, ButtonHTMLAttributes } from 'react';
+import type { ReactNode } from 'react';
+import type { ButtonProps } from '@heroui/react';
 
-export interface CustomButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'> {
+export interface CustomButtonProps extends Omit<ButtonProps, 'startContent' | 'endContent' | 'isLoading' | 'isDisabled'> {
   /** The content of the button */
   children: ReactNode;
   /** Icon to display at the start of the button */

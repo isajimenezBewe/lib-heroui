@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos custom opcionales */
+@layer components {
+  .storybook-button {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors;
+  }
+}

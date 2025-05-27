@@ -1,28 +1,27 @@
-import type { StorybookConfig } from '@storybook/react-vite';
+// Si usas Vite
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 
-const config: StorybookConfig = {
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+module.exports = {
+  stories: ["../src/**/*.stories.@(js|jsx|ts|tsx|mdx)"],
   addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
+    "@storybook/addon-essentials",
+    // otros addons...
   ],
   framework: {
-    name: '@storybook/react-vite',
+    name: "@storybook/react-vite", // o el framework que uses
     options: {},
   },
-  typescript: {
-    check: false,
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
-    },
+  features: {
+    postcss: false, // Desactiva el PostCSS por defecto de Storybook
   },
-  async viteFinal(config) {
-    config.css = config.css || {};
-    config.css.postcss = '../postcss.config.js';
+  viteFinal: async (config) => {
+    config.css = {
+      postcss: {
+        plugins: [tailwindcss, autoprefixer],
+      },
+    };
+
     return config;
   },
 };
-
-export default config;
