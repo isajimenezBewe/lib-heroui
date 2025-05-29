@@ -1,0 +1,145 @@
+/* Tema Verde */
+[data-theme="green"] {
+  /* Primary colors */
+  --color-primary-50: 236 249 240;
+  --color-primary-100: 209 240 220;
+  --color-primary-200: 182 231 199;
+  --color-primary-300: 156 222 179;
+  --color-primary-400: 129 213 158;
+  --color-primary-500: 102 204 138;
+  --color-primary-600: 84 168 114;
+  --color-primary-700: 66 133 90;
+  --color-primary-800: 48 97 66;
+  --color-primary-900: 31 61 41;
+  --color-primary-DEFAULT: 102 204 138;
+  --color-primary-foreground: 0 0 0;
+
+  /* Secondary colors */
+  --color-secondary-50: 230 239 255;
+  --color-secondary-100: 195 216 254;
+  --color-secondary-200: 160 193 253;
+  --color-secondary-300: 125 170 252;
+  --color-secondary-400: 90 147 252;
+  --color-secondary-500: 55 124 251;
+  --color-secondary-600: 45 102 207;
+  --color-secondary-700: 36 81 163;
+  --color-secondary-800: 26 59 119;
+  --color-secondary-900: 17 37 75;
+  --color-secondary-DEFAULT: 55 124 251;
+  --color-secondary-foreground: 0 0 0;
+
+}
+
+[data-theme="green"].dark {
+  /* Primary colors dark */
+  --color-primary-50: 31 61 41;
+  --color-primary-100: 48 97 66;
+  --color-primary-200: 66 133 90;
+  --color-primary-300: 84 168 114;
+  --color-primary-400: 102 204 138;
+  --color-primary-500: 129 213 158;
+  --color-primary-600: 156 222 179;
+  --color-primary-700: 182 231 199;
+  --color-primary-800: 209 240 220;
+  --color-primary-900: 236 249 240;
+  --color-primary-DEFAULT: 102 204 138;
+  --color-primary-foreground: 0 0 0;
+
+}
+
+/* Tema Púrpura */
+[data-theme="purple"] {
+  /* Primary colors */
+  --color-primary-50: 238 228 248;
+  --color-primary-100: 215 191 239;
+  --color-primary-200: 191 153 229;
+  --color-primary-300: 167 115 219;
+  --color-primary-400: 144 78 210;
+  --color-primary-500: 120 40 200;
+  --color-primary-600: 99 33 165;
+  --color-primary-700: 78 26 130;
+  --color-primary-800: 57 19 95;
+  --color-primary-900: 36 12 60;
+  --color-primary-DEFAULT: 120 40 200;
+  --color-primary-foreground: 255 255 255;
+
+  /* Secondary colors */
+  --color-secondary-50: 233 237 255;
+  --color-secondary-100: 203 212 255;
+  --color-secondary-200: 173 188 255;
+  --color-secondary-300: 143 163 255;
+  --color-secondary-400: 112 138 255;
+  --color-secondary-500: 82 113 255;
+  --color-secondary-600: 68 93 210;
+  --color-secondary-700: 53 73 166;
+  --color-secondary-800: 39 54 121;
+  --color-secondary-900: 25 34 77;
+  --color-secondary-DEFAULT: 82 113 255;
+  --color-secondary-foreground: 0 0 0;
+}
+
+[data-theme="purple"].dark {
+  /* Primary colors dark */
+  --color-primary-50: 44 25 63;
+  --color-primary-100: 70 39 100;
+  --color-primary-200: 96 54 137;
+  --color-primary-300: 121 68 174;
+  --color-primary-400: 147 83 211;
+  --color-primary-500: 166 113 219;
+  --color-primary-600: 185 143 226;
+  --color-primary-700: 204 173 234;
+  --color-primary-800: 223 203 242;
+  --color-primary-900: 242 234 250;
+  --color-primary-DEFAULT: 147 83 211;
+  --color-primary-foreground: 255 255 255;
+
+}
+
+/* Tema Azul */
+[data-theme="blue"] {
+  /* Primary colors */
+  --color-primary-50: 239 246 255;
+  --color-primary-100: 219 234 254;
+  --color-primary-200: 191 219 254;
+  --color-primary-300: 147 197 253;
+  --color-primary-400: 96 165 250;
+  --color-primary-500: 59 130 246;
+  --color-primary-600: 37 99 235;
+  --color-primary-700: 29 78 216;
+  --color-primary-800: 30 64 175;
+  --color-primary-900: 30 58 138;
+  --color-primary-DEFAULT: 59 130 246;
+  --color-primary-foreground: 255 255 255;
+
+  /* Secondary colors */
+  --color-secondary-50: 248 250 252;
+  --color-secondary-100: 241 245 249;
+  --color-secondary-200: 226 232 240;
+  --color-secondary-300: 203 213 225;
+  --color-secondary-400: 148 163 184;
+  --color-secondary-500: 100 116 139;
+  --color-secondary-600: 71 85 105;
+  --color-secondary-700: 51 65 85;
+  --color-secondary-800: 30 41 59;
+  --color-secondary-900: 15 23 42;
+  --color-secondary-DEFAULT: 100 116 139;
+  --color-secondary-foreground: 0 0 0;
+
+}
+
+[data-theme="blue"].dark {
+  /* Primary colors dark */
+  --color-primary-50: 30 58 138;
+  --color-primary-100: 30 64 175;
+  --color-primary-200: 29 78 216;
+  --color-primary-300: 37 99 235;
+  --color-primary-400: 59 130 246;
+  --color-primary-500: 96 165 250;
+  --color-primary-600: 147 197 253;
+  --color-primary-700: 191 219 254;
+  --color-primary-800: 219 234 254;
+  --color-primary-900: 239 246 255;
+  --color-primary-DEFAULT: 59 130 246;
+  --color-primary-foreground: 255 255 255;
+
+} 
