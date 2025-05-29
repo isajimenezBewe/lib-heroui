@@ -5,5 +5,6 @@ export type { PhoneInputProps } from './components/PhoneInput'
 
 export { ThemeProvider } from './providers/ThemeProvider'
 
-
+export { CustomColorProvider, useTheme } from './contexts/ThemeContext'
 export { default as themes } from './styles/themes.css'
+
